@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>live 방식과 static 방식</title>
+    <style>
+        .item{
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            box-sizing:border-box;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class ="item">1</div>
+        <div class ="item">2</div>
+        <div class ="item">3</div>
+    </div>
+
+
+    <script>
+        const items_html = document.getElementsByClassName('item');
+        const items_array = Array.from(items_html);
+
+        console.log(`live : ${items_array.length}`);
+
+        const items_node = document.querySelectorAll('.item');
+        const itemes_node_array = Array.from(items_node);
+        console.log(`static: ${itemes_node_array.length}`);
+
+        const element_div = document.createElement('div');
+        element_div.className = "item";
+        document.body.appendChild(element_div);
+        
+        console.log(`live : ${items_html.length}`);
+        console.log(`static: ${items_node.length}`);
+         
+    </script>
+    
+</body>
+</html>
